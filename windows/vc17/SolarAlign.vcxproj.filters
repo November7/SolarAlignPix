@@ -17,5 +17,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SolarAlignModule.h" />
+    <ClInclude Include="SolarAlignInterface.h" />
+    <ClInclude Include="SolarAlignInstance.h" />
+    <ClInclude Include="SolarAlignProcess.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SolarAlignModule.cpp" />
+    <ClCompile Include="SolarAlignInterface.cpp" />
+    <ClCompile Include="SolarAlignInstance.cpp" />
+    <ClCompile Include="SolarAlignProcess.cpp" />
   </ItemGroup>
 </Project>

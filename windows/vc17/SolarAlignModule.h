@@ -1,0 +1,19 @@
+#pragma once
+
+#include <pcl/MetaModule.h>
+
+namespace pcl
+{
+
+    class SolarAlignModule :
+        public MetaModule
+    {
+    public:
+        SolarAlignModule();
+        const char* Version() const override;
+        IsoString Name() const override;
+        String Author() const override;
+
+    };
+
+} //pcl
