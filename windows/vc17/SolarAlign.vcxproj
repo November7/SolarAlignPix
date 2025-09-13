@@ -21,6 +21,18 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\SolarAlignInstance.cpp" />
+    <ClCompile Include="..\..\SolarAlignInterface.cpp" />
+    <ClCompile Include="..\..\SolarAlignModule.cpp" />
+    <ClCompile Include="..\..\SolarAlignProcess.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\SolarAlignInstance.h" />
+    <ClInclude Include="..\..\SolarAlignInterface.h" />
+    <ClInclude Include="..\..\SolarAlignModule.h" />
+    <ClInclude Include="..\..\SolarAlignProcess.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{02C82AD0-84FF-4374-A59D-44C38BC966AB}</ProjectGuid>
     <RootNamespace>PixInsight</RootNamespace>
@@ -138,18 +150,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="SolarAlignInstance.h" />
-    <ClInclude Include="SolarAlignInterface.h" />
-    <ClInclude Include="SolarAlignModule.h" />
-    <ClInclude Include="SolarAlignProcess.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SolarAlignInstance.cpp" />
-    <ClCompile Include="SolarAlignInterface.cpp" />
-    <ClCompile Include="SolarAlignModule.cpp" />
-    <ClCompile Include="SolarAlignProcess.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
