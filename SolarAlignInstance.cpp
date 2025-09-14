@@ -1,17 +1,21 @@
 #include "SolarAlignInstance.h"
 
 
+#include <pcl/AutoViewLock.h>
+#include <pcl/Console.h>
+#include <pcl/StandardStatus.h>
+#include <pcl/View.h>
+
+
 namespace pcl
 {
-    SolarAlignInstance::SolarAlignInstance(const MetaProcess* m)
-        : ProcessImplementation(m)
+    SolarAlignInstance::SolarAlignInstance(const MetaProcess* m) : ProcessImplementation(m)
     {
     }
 
     // ----------------------------------------------------------------------------
 
-    SolarAlignInstance::SolarAlignInstance(const SolarAlignInstance& x)
-        : ProcessImplementation(x)
+    SolarAlignInstance::SolarAlignInstance(const SolarAlignInstance& x) : ProcessImplementation(x)
     {
         Assign(x);
     }
@@ -27,13 +31,6 @@ namespace pcl
 
     UndoFlags SolarAlignInstance::UndoMode(const View&) const
     {
-        /*
-         * The following flag assumes that your process modifies pixel sample values
-         * *exclusively*. If you are going to change anything else, such as image
-         * geometry, keywords, etc., or maybe nothing at all (in case you are
-         * implementing an image observer process), see the UpdateFlag enumeration
-         * in pcl/ImageWindow.h for complete information.
-         */
         return UndoFlag::PixelData;
     }
 
@@ -68,7 +65,18 @@ namespace pcl
     bool SolarAlignInstance::ExecuteOn(View& view)
     {
      
+        AutoViewLock lock(view);
 
+        ImageVariant image = view.Image();
+        if (image.IsComplexSample())
+            return false;
+
+        StandardStatus status;
+        image.SetStatusCallback(&status);
+
+        Console().EnableAbort();
+
+        
        
 
         return true;

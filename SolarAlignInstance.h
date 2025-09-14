@@ -3,6 +3,7 @@
 //#include <pcl/MetaParameter.h> // pcl_bool, pcl_enum
 
 #include <pcl/ProcessImplementation.h>
+
 namespace pcl
 {
     class SolarAlignInstance :

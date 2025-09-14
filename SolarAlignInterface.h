@@ -17,9 +17,38 @@ namespace pcl
     {
     public:
 		SolarAlignInterface();
+        virtual ~SolarAlignInterface();
+        IsoString Id() const override;
+        MetaProcess* Process() const override;
+        String IconImageSVGFile() const override;
+        void ApplyInstance() const override;
+        void ResetInstance() override;
+        bool Launch(const MetaProcess&, const ProcessImplementation*, bool& dynamic, unsigned& /*flags*/) override;
+        ProcessImplementation* NewProcess() const override;
+        bool ValidateProcess(const ProcessImplementation&, String& whyNot) const override;
+        bool RequiresInstanceValidation() const override;
+        bool ImportProcess(const ProcessImplementation&) override;
+
+
 
     private:
         SolarAlignInstance m_instance;
+
+        class GUIData
+        {
+        public:
+            GUIData(SolarAlignInterface&);
+
+            VerticalSizer   Global_Sizer;
+            Label           SampleLabel;
+            
+        };
+
+        GUIData* GUI = nullptr;
+
+    
+
+        friend class GUIData;
     };
 
 
