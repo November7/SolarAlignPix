@@ -10,6 +10,8 @@
 #include <pcl/ProcessInterface.h>
 #include <pcl/Sizer.h>
 #include <pcl/SpinBox.h>
+#include <pcl/ImageView.h>
+#include <pcl/PushButton.h>
 
 namespace pcl
 {
@@ -25,10 +27,12 @@ namespace pcl
         void ResetInstance() override;
         bool Launch(const MetaProcess&, const ProcessImplementation*, bool& dynamic, unsigned& /*flags*/) override;
         ProcessImplementation* NewProcess() const override;
-        bool ValidateProcess(const ProcessImplementation&, String& whyNot) const override;
+        bool ValidateProcess(const ProcessImplementation&, String&) const override;
         bool RequiresInstanceValidation() const override;
         bool ImportProcess(const ProcessImplementation&) override;
-
+        void OnLoadImageClicked(Button&, bool);
+        bool DownloadImage(const String& , const String& );
+        void ShowImage(const String& localPath);
 
 
     private:
@@ -41,6 +45,8 @@ namespace pcl
 
             VerticalSizer   Global_Sizer;
             Label           SampleLabel;
+            ImageView       ImageDisplay;
+			PushButton      LoadImageButton;
             
         };
 
