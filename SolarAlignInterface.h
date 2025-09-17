@@ -12,6 +12,7 @@
 #include <pcl/SpinBox.h>
 #include <pcl/ImageView.h>
 #include <pcl/PushButton.h>
+#include <pcl/NetworkTransfer.h>
 
 namespace pcl
 {
@@ -33,11 +34,12 @@ namespace pcl
         void OnLoadImageClicked(Button&, bool);
         bool DownloadImage(const String& , const String& );
         void ShowImage(const String& localPath);
+        bool OnDataAvailable(NetworkTransfer& , const void* , fsize_type );
 
 
     private:
         SolarAlignInstance m_instance;
-
+        ByteArray downloadedData;
         class GUIData
         {
         public:
