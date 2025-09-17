@@ -168,6 +168,7 @@ namespace pcl
 	{
 		String url = "https://sdo.gsfc.nasa.gov/assets/img/latest/latest_1024_0193.jpg";
 		//String url = "https://fits.gsfc.nasa.gov/samples/FGSf64y0106m_a1f.fits";
+		//String url = "https://jsoc1.stanford.edu/data/aia/synoptic/2025/05/02/H1200/AIA20250502_1200_4500.fits";
 
 		String tempPath = File::SystemTempDirectory() + "/temp_image.jpg";
 				
